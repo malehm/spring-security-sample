@@ -1,0 +1,18 @@
+spring.application.name: spring-security
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          spring-security-client:
+            provider: keycloak
+            client-id: spring-security-service-client
+            client-secret: ${clientSecret}
+            authorization-grant-type: client_credentials
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:8080/realms/idp
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/idp
+logging.level.org.springframework.security: DEBUG
